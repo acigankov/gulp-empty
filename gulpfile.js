@@ -182,14 +182,21 @@ function imageMin(){
 
             imageminSvgo({
                 plugins: [
-                    { removeViewBox: false },
-                    { removeUnusedNS: false },
-                    { removeUselessStrokeAndFill: false },
-                    { cleanupIDs: false },
-                    { removeComments: true },
-                    { removeEmptyAttrs: true },
-                    { removeEmptyText: true },
-                    { collapseGroups: true }
+                    {
+                        name: 'preset-default',
+                        params: {
+                            overrides: {
+                                removeViewBox: false,
+                                removeUnusedNS: false,
+                                removeUselessStrokeAndFill: false,
+                                cleanupIDs: false,
+                                removeComments: true,
+                                removeEmptyAttrs: true,
+                                removeEmptyText: true,
+                                collapseGroups: true
+                            }
+                        }
+                    }
                 ]
             })
         ]))
@@ -262,3 +269,4 @@ export default gulp.series(
     webConverter,
 );
 
+export { fontsConvert };
